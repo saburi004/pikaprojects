@@ -1,33 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Project Marketplace & Collaboration Platform
+
+Antigravity is a full-stack web platform designed for students and developers to **sell projects, buy projects, sponsor ideas, and work on sponsored projects**.  
+It enables direct collaboration without in-app chat or payment gateways, keeping the workflow simple and transparent.
+
+---
+
+## 🚀 Features
+
+### 🔐 Authentication
+- User Sign Up & Sign In
+- Secure session handling
+- Role-based dashboard access
+
+---
+
+### 💼 Sell Projects
+- List projects with:
+  - Title
+  - Description
+  - Images
+  - Demo video (URL or upload)
+  - Deployed project link
+  - Price
+  - Tech stack
+  - Contact number
+- Seller dashboard to:
+  - Manage listed projects
+  - View buyer requests
+  - View dummy payment status
+
+---
+
+### 🛒 Buy Projects
+- Browse available projects
+- View detailed project information
+- Send request to seller
+  - Buyer contact details are shared with seller
+- Buy project using **dummy payment**
+- Buyer dashboard shows:
+  - Purchased projects
+  - Payment status
+
+---
+
+### 🤝 Sponsor Projects
+- Post sponsored project opportunities with:
+  - Project title
+  - Problem statement
+  - Required skills / tech stack
+  - Budget (fixed or range)
+  - Timeline
+  - Sponsor contact details
+- View applications from developers
+
+---
+
+### 🧑‍💻 Work on Sponsored Projects
+- Apply to sponsored projects by submitting:
+  - Resume (PDF)
+  - Contact number
+  - Introduction
+  - Previous projects completed on the platform
+  - Optional GitHub / portfolio link
+- Sponsor contacts selected applicants directly
+
+---
+
+### 📊 Dashboard
+Each user dashboard displays:
+- Projects sold
+- Projects bought
+- Sponsored projects posted
+- Applications sent
+- Applications received
+- Dummy payment status (paid / received)
+
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
