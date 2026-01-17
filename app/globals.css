@@ -3,6 +3,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --pokemon-yellow: #FFCB05;
+  --pokemon-blue: #2a75bb;
+  --pokemon-red: #ff0000;
+  --pokemon-dark-blue: #3c5aa6;
 }
 
 @theme inline {
@@ -16,6 +20,11 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --pokemon-yellow: #FFCB05;
+    --pokemon-blue: #3c5aa6;
+    /* Lighter blue for dark mode? Or keep brand? */
+    --pokemon-red: #ff3333;
+    --pokemon-dark-blue: #2a75bb;
   }
 }
 

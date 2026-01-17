@@ -1,0 +1,70 @@
+   ??? Next.js 15.3.3
+   - Environments: .env.local
+
+   Creating an optimized production build ...
+npx : Failed to compile.
+At line:1 char:1
++ npx next build > 
+build_log.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+    + CategoryInfo      
+        : NotSpecified  
+  : (Failed to compil   
+ e.:String) [], Remo    
+teException
+    + FullyQualifiedErr 
+   orId : NativeComman  
+  dError
+ 
+
+./app/auth/page.js
+Module not found: Can't 
+resolve 
+'@/context/AuthContext'
+
+https://nextjs.org/docs/
+messages/module-not-foun
+d
+
+./app/dashboard/page.js
+Module not found: Can't 
+resolve 
+'@/context/AuthContext'
+
+https://nextjs.org/docs/
+messages/module-not-foun
+d
+
+./app/marketplace/[id]/p
+age.js
+Module not found: Can't 
+resolve 
+'@/context/AuthContext'
+
+https://nextjs.org/docs/
+messages/module-not-foun
+d
+
+./app/sell/page.js
+Module not found: Can't 
+resolve 
+'@/context/AuthContext'
+
+https://nextjs.org/docs/
+messages/module-not-foun
+d
+
+./app/sponsor/[id]/page.
+js
+Module not found: Can't 
+resolve 
+'@/context/AuthContext'
+
+https://nextjs.org/docs/
+messages/module-not-foun
+d
+
+
+> Build failed because 
+of webpack errors

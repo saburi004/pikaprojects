@@ -3,11 +3,11 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import DotGrid from "./DotGrid";
+import Link from "next/link";
 import Image from "next/image";
 import "animate.css";
 import Head from "next/head";
 import NewlyAdded from "./NewlyAdded";
-import Navbar from "../Navi";
 import Startselling from "./Startselling"
 import {
   ChevronDown,
@@ -290,7 +290,6 @@ const Hero = () => {
   return (
     <>
       <div>
-        <Navbar />
       </div>
 
       {/* Hero Section with Enhanced Background */}
@@ -346,9 +345,8 @@ const Hero = () => {
           </div>
 
           <div
-            className={`relative h-48 w-48 md:h-[460px] md:w-[460px] mt-12 md:mt-60 ${
-              isAnimating ? "animate__animated animate__bounceInUp" : ""
-            }`}
+            className={`relative h-48 w-48 md:h-[460px] md:w-[460px] mt-12 md:mt-60 ${isAnimating ? "animate__animated animate__bounceInUp" : ""
+              }`}
             onMouseEnter={handleMouseEnter}
           >
             <img
@@ -406,22 +404,22 @@ const Hero = () => {
           ></div>
 
           <div className="relative z-10 flex h-full max-w-[1000px] mx-auto gap-x-4 sm:gap-x-8 md:gap-x-12 px-4">
-            <div className="w-1/2 flex items-center justify-center">
-              <div className="text-center">
+            <Link href="/marketplace" className="w-1/2 flex items-center justify-center hover:scale-105 transition-transform duration-300">
+              <div className="text-center cursor-pointer">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-yellow-400 mb-2">
                   Buy
                 </h2>
                 <p className="text-sm text-yellow-300">Premium Projects</p>
               </div>
-            </div>
-            <div className="w-1/2 flex items-center justify-center">
-              <div className="text-center">
+            </Link>
+            <Link href="/dashboard" className="w-1/2 flex items-center justify-center hover:scale-105 transition-transform duration-300">
+              <div className="text-center cursor-pointer">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-2">
                   Sell
                 </h2>
                 <p className="text-sm text-gray-700">Your Creations</p>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
 
@@ -543,11 +541,10 @@ const Hero = () => {
                       </button>
 
                       <div
-                        className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                          openFAQ === faq.id
-                            ? "max-h-96 opacity-100"
-                            : "max-h-0 opacity-0"
-                        }`}
+                        className={`overflow-hidden transition-all duration-500 ease-in-out ${openFAQ === faq.id
+                          ? "max-h-96 opacity-100"
+                          : "max-h-0 opacity-0"
+                          }`}
                       >
                         <div className="p-4 sm:p-6 text-gray-700 text-sm sm:text-base leading-relaxed">
                           {faq.answer}
@@ -562,7 +559,7 @@ const Hero = () => {
         </div>
 
         {/* Call to Action Section */}
-        <Startselling/>
+        <Startselling />
         {/* <div className="bg-[#E5FFFE] py-16 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute top-10 left-10 w-20 h-20 bg-yellow-400/20 rounded-full animate-pulse"></div>

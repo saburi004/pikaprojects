@@ -2,8 +2,6 @@
 "use client";
 
 import { useState } from "react";
-import { auth, googleProvider, githubProvider } from "../firebase/config";
-import { signInWithPopup } from "firebase/auth";
 
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
@@ -16,49 +14,8 @@ export default function Auth() {
     trainerName: "",
   });
 
-  const handleGoogleLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, googleProvider);
-      const user = result.user;
-      console.log("Google user:", user);
-      await fetch("/api/users/buyers", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          b_name: user.displayName,
-          b_email: user.email,
-          b_password: "", // Not needed for social login
-          registeredAt: new Date().toISOString(),
-        }),
-      });
-    } catch (error) {
-      console.error("Google Sign-In Error:", error);
-    }
-  };
+  /* Social login handlers removed as Firebase is deprecated */
 
-  const handleGitHubLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, githubProvider);
-      const user = result.user;
-      console.log("GitHub user:", user);
-      await fetch("/api/users/buyers", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          b_name: user.displayName,
-          b_email: user.email,
-          b_password: "", // Not needed for social login
-          registeredAt: new Date().toISOString(),
-        }),
-      });
-    } catch (error) {
-      console.error("GitHub Sign-In Error:", error);
-    }
-  };
 
   const handleInputChange = (e) => {
     setFormData({
@@ -199,21 +156,19 @@ export default function Auth() {
             <div className="flex mb-6 bg-black/10 rounded-full p-1">
               <button
                 onClick={() => setIsLogin(true)}
-                className={`flex-1 py-2 px-4 rounded-full text-sm font-medium transition-all duration-300 ${
-                  isLogin
-                    ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
-                    : "text-gray-700 hover:text-gray-900"
-                }`}
+                className={`flex-1 py-2 px-4 rounded-full text-sm font-medium transition-all duration-300 ${isLogin
+                  ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg"
+                  : "text-gray-700 hover:text-gray-900"
+                  }`}
               >
                 Login
               </button>
               <button
                 onClick={() => setIsLogin(false)}
-                className={`flex-1 py-2 px-4 rounded-full text-sm font-medium transition-all duration-300 ${
-                  !isLogin
-                    ? "bg-gradient-to-r from-red-500 to-pink-600 text-white shadow-lg"
-                    : "text-gray-700 hover:text-gray-900"
-                }`}
+                className={`flex-1 py-2 px-4 rounded-full text-sm font-medium transition-all duration-300 ${!isLogin
+                  ? "bg-gradient-to-r from-red-500 to-pink-600 text-white shadow-lg"
+                  : "text-gray-700 hover:text-gray-900"
+                  }`}
               >
                 Sign Up
               </button>
@@ -302,38 +257,9 @@ export default function Auth() {
             </div>
 
             {/* Social Login */}
-            <div className="mt-4 space-y-3">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-600"></div>
-                </div>
-                <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-transparent text-gray-700">
-                    Or continue with
-                  </span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <button
-                  className="flex items-center justify-center px-4 py-2 border border-yellow-600/30 rounded-xl bg-yellow-300/30 hover:bg-yellow-300/50 transition-all duration-200 group"
-                  onClick={handleGoogleLogin}
-                >
-                  <span className="text-2xl mr-2 group-hover:scale-110 transition-transform duration-200">
-                    🔥
-                  </span>
-                  <span className="text-gray-800 text-sm">Google</span>
-                </button>
-                <button
-                  className="flex items-center justify-center px-4 py-2 border border-yellow-600/30 rounded-xl bg-yellow-300/30 hover:bg-yellow-300/50 transition-all duration-200 group"
-                  onClick={handleGitHubLogin}
-                >
-                  <span className="text-2xl mr-2 group-hover:scale-110 transition-transform duration-200">
-                    ⚡
-                  </span>
-                  <span className="text-gray-800 text-sm">GitHub</span>
-                </button>
-              </div>
+            {/* Social Login Removed */}
+            <div className="mt-4 text-center text-gray-600 text-sm">
+              <p>Social Login is temporarily unavailable.</p>
             </div>
           </div>
         </div>

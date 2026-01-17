@@ -26,19 +26,53 @@ export default function CallToAction() {
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (formStep === 1) {
-      setFormStep(2);
-    } else {
-      // Submit the final form
-      console.log('Form submitted:', formData);
-      setShowForm(false);
-      setFormStep(1);
-      // Here you would typically send the data to your backend
-    }
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  
+  if (formStep === 1) {
+    setFormStep(2);
+    return;
+  }
 
+  try {
+    const formData = new FormData();
+    
+    // Add all text fields
+    formData.append('fullName', formData.fullName);
+    formData.append('githubLink', formData.githubLink);
+    formData.append('email', formData.email);
+    formData.append('phone', formData.phone);
+    formData.append('projectName', formData.projectName);
+    formData.append('domain', formData.domain);
+    formData.append('price', formData.price);
+    
+    // Add files if they exist
+    if (formData.image) formData.append('image', formData.image);
+    if (formData.video) formData.append('video', formData.video);
+    if (formData.zipFile) formData.append('zipFile', formData.zipFile);
+
+    const response = await fetch('/api/users/sellers', {
+      method: 'POST',
+      body: formData, // No Content-Type header needed for FormData
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to submit form');
+    }
+
+    const result = await response.json();
+    console.log('Success:', result);
+    
+    setShowForm(false);
+    setFormStep(1);
+    // Reset form or show success message
+    alert('Submission successful!');
+    
+  } catch (err) {
+    console.error('Submission error:', err);
+    alert(`Error: ${err.message}`);
+  }
+};
   return (
     <div className="bg-[#E5FFFE] py-16 relative overflow-hidden">
   {/* Animated background elements */}
